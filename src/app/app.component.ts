@@ -45,16 +45,10 @@ export class AppComponent {
   title = "Interceptors-Angular";
 
   constructor(private userSrv: UsersService) {
-    this.userSrv.gerUsers().subscribe(
-      // (res) => console.log(res),
-      // (err: any) => {
-      //   console.log("la mare que em va parir");
-      // },
-      {
-        next: (resp) => console.log(resp),
-        error: (e) => console.error(e),
-        complete: () => console.info("complete"),
-      },
-    );
+    this.userSrv.gerUsers().subscribe({
+      next: (resp) => console.log(resp),
+      error: (e) => console.error(e, "error from component"),
+      complete: () => console.info("complete"),
+    });
   }
 }
